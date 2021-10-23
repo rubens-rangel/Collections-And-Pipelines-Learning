@@ -29,6 +29,10 @@ public class application {
                 System.out.println("Nome:" +object[0]+ " |Email:" + object[1] + "| Salario: " + object[2]);
                 br.readLine();
             }
+            System.out.println("lista de nomes");
+            List<String> listaArrumada = list.stream().map(funcionario -> funcionario.getNome()).sorted().collect(Collectors.toList());
+            System.out.println(listaArrumada);
+
             System.out.println(" ");
             System.out.println("Type a Salary to see the Email of peoples whose the salary is above:");
             Double maiorq = sv.nextDouble();
@@ -38,7 +42,7 @@ public class application {
             System.out.println(emailsmq);
 
             System.out.println(" ");
-            System.out.println("salary some of peoples who start with the letter 'M' :");
+            System.out.println("Salary some of peoples who start with the letter 'M' :");
             Double somaSalario = list.stream().filter(funcionario -> funcionario.getNome().charAt(0) == 'M').map(funcionario -> funcionario.getSalario()).
                     reduce(Double.valueOf(0), Double::sum);
             System.out.println(somaSalario);
