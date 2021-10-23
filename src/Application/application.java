@@ -29,7 +29,8 @@ public class application {
                 System.out.println("Nome:" +object[0]+ " |Email:" + object[1] + "| Salario: " + object[2]);
                 br.readLine();
             }
-            System.out.println("names in order");
+            System.out.println("");
+            System.out.println("Names in order:");
             List<String> listaArrumada = list.stream().map(Func -> Func.getNome()).sorted().collect(Collectors.toList());
             System.out.println(listaArrumada);
 
@@ -42,7 +43,7 @@ public class application {
             System.out.println(emailsmq);
 
             System.out.println(" ");
-            System.out.println("Salary some of peoples who start with the letter 'M' :");
+            System.out.println("Salary some of peoples who start with the letter (M):");
             Double somaSalario = list.stream().filter(Func -> Func.getNome().charAt(0) == 'M').map(Func -> Func.getSalario()).
                     reduce(Double.valueOf(0), Double::sum);
             System.out.println(somaSalario);
