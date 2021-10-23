@@ -1,6 +1,6 @@
 package Application;
 
-import Entities.funcionario;
+import Entities.Func;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class application {
     public static void main(String[] args) {
         File file = new File("C:\\Users\\ruben\\OneDrive\\Área de Trabalho\\java_files\\in.csv");
-        List<funcionario> list = new ArrayList<>();
+        List<Func> list = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         Scanner sv = new Scanner(System.in);
         String[] object = null;
@@ -25,25 +25,25 @@ public class application {
 
             while (sc.hasNextLine()) {
                 object = sc.nextLine().split(";");
-                list.add(new funcionario(object[0], object[1], Double.parseDouble(object[2])));
+                list.add(new Func(object[0], object[1], Double.parseDouble(object[2])));
                 System.out.println("Nome:" +object[0]+ " |Email:" + object[1] + "| Salario: " + object[2]);
                 br.readLine();
             }
-            System.out.println("lista de nomes");
-            List<String> listaArrumada = list.stream().map(funcionario -> funcionario.getNome()).sorted().collect(Collectors.toList());
+            System.out.println("names in order");
+            List<String> listaArrumada = list.stream().map(Func -> Func.getNome()).sorted().collect(Collectors.toList());
             System.out.println(listaArrumada);
 
             System.out.println(" ");
             System.out.println("Type a Salary to see the Email of peoples whose the salary is above:");
             Double maiorq = sv.nextDouble();
             System.out.println("Emails list:");
-            List<String> emailsmq = list.stream().filter(funcionario -> funcionario.getSalario() > maiorq).map(funcionario -> funcionario.getEmail())
+            List<String> emailsmq = list.stream().filter(Func -> Func.getSalario() > maiorq).map(Func -> Func.getEmail())
                     .sorted().collect(Collectors.toList());
             System.out.println(emailsmq);
 
             System.out.println(" ");
             System.out.println("Salary some of peoples who start with the letter 'M' :");
-            Double somaSalario = list.stream().filter(funcionario -> funcionario.getNome().charAt(0) == 'M').map(funcionario -> funcionario.getSalario()).
+            Double somaSalario = list.stream().filter(Func -> Func.getNome().charAt(0) == 'M').map(Func -> Func.getSalario()).
                     reduce(Double.valueOf(0), Double::sum);
             System.out.println(somaSalario);
 

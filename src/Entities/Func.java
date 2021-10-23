@@ -1,11 +1,11 @@
 package Entities;
 
-public class funcionario {
+public class Func {
     private String nome;
     private String email;
     private Double Salario;
 
-    public funcionario(String nome, String email, Double salario) {
+    public Func(String nome, String email, Double salario) {
         this.nome = nome;
         this.email = email;
         Salario = salario;
