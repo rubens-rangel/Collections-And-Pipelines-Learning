@@ -26,10 +26,10 @@ public class application {
             while (sc.hasNextLine()) {
                 object = sc.nextLine().split(";");
                 list.add(new funcionario(object[0], object[1], Double.parseDouble(object[2])));
-                System.out.println("Nome:" +object[0]+ "Email:" + object[1] + "Salario" + object[2]);
+                System.out.println("Nome:" +object[0]+ " |Email:" + object[1] + "| Salario: " + object[2]);
                 br.readLine();
             }
-
+            System.out.println(" ");
             System.out.println("Type a Salary to see the Email of peoples whose the salary is above:");
             Double maiorq = sv.nextDouble();
             System.out.println("Emails list:");
@@ -37,7 +37,7 @@ public class application {
                     .sorted().collect(Collectors.toList());
             System.out.println(emailsmq);
 
-
+            System.out.println(" ");
             System.out.println("salary some of peoples who start with the letter 'M' :");
             Double somaSalario = list.stream().filter(funcionario -> funcionario.getNome().charAt(0) == 'M').map(funcionario -> funcionario.getSalario()).
                     reduce(Double.valueOf(0), Double::sum);
