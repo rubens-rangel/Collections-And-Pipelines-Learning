@@ -26,9 +26,9 @@ public class application {
             while (sc.hasNextLine()) {
                 object = sc.nextLine().split(";");
                 list.add(new Func(object[0], object[1], Double.parseDouble(object[2])));
-                System.out.println("Nome:" +object[0]+ " |Email:" + object[1] + "| Salario: " + object[2]);
+                System.out.println("Name:" +object[0]+ " |E-mail:" + object[1] + "| Salary: " + object[2]);
                 br.readLine();
-            }
+            
             System.out.println("");
             System.out.println("Names in order:");
             List<String> listaArrumada = list.stream().map(Func -> Func.getNome()).sorted().collect(Collectors.toList());
